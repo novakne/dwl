@@ -14,8 +14,8 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       0,            1,           -1 },
 	{ "firefox",  NULL,       1 << 8,       0,           -1 },
 	*/
-    // { "imv",  NULL,       1 << 8,       1,           -1 },
-    // { "mpv",  NULL,       1 << 8,       1,           -1 },
+    { "imv",  NULL,       1 << 8,       1,           -1 },
+    { "mpv",  NULL,       1 << 8,       1,           -1 },
 };
 
 /* layout(s) */
@@ -45,7 +45,7 @@ static const struct xkb_rule_names xkb_rules = {
 	.options = "ctrl:nocaps",
 	*/
 	.layout = "fr",
-	.model = "pc101",
+	.model = "pc105",
 };
 
 static const int repeat_rate = 50;
@@ -66,16 +66,16 @@ static const int natural_scrolling = 0;
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[]  = { "foot", NULL };
+static const char *termcmd[]  = { "footclient", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
-static const char *dmenucmd[] = { "dmenu-wl_run", "-i", "-h", "28", "-p", "App: ", "-fn", "Overpass", "-nb", "#38383c", "-nf", "#d2ccd6", "-sb", "#e8ec77", "-sf", "#232227", NULL };
+static const char *dmenucmd[] = { "dmenu-run", NULL };
 static const char *mute[]  = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 static const char *volumeup[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *volumedown[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
 static const char *brigthnessup[]  = { "brightnessctl", "set", "+5%", NULL };
 static const char *brigthnessdown[]  = { "brightnessctl", "set", "5%-", NULL };
-static const char *snapall[]  = { "snap", "a", NULL };
-static const char *snapselect[]  = { "snap", "s", NULL };
+static const char *snapall[]  = { "snap", "-a", NULL };
+static const char *snapselect[]  = { "snap", "-s", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
