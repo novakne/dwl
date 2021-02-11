@@ -1,9 +1,9 @@
 /* appearance */
 static const int sloppyfocus        = 1;  /* focus follows mouse */
 static const unsigned int borderpx  = 1;  /* border pixel of windows */
-static const float rootcolor[]      = {0.3, 0.3, 0.3, 1.0};
-static const float bordercolor[]    = {0.5, 0.5, 0.5, 1.0};
-static const float focuscolor[]     = {0.9, 1.0, 0.5, 1.0};
+static const float rootcolor[]      = {0.13, 0.13, 0.15, 1.0};
+static const float bordercolor[]    = {0.21, 0.21, 0.23, 1.0};
+static const float focuscolor[]     = {0.9, 0.92, 0.46, 1.0};
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -69,6 +69,7 @@ static const int natural_scrolling = 0;
 static const char *termcmd[]  = { "footclient", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
 static const char *dmenucmd[] = { "dmenu-run", NULL };
+static const char *dmenucmd[] = { "dmenu-desktop", NULL };
 static const char *mute[]  = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 static const char *volumeup[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *volumedown[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
@@ -81,7 +82,9 @@ static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  key                 function        argument */
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
+	{ WLR_MODIFIER_CTRL|WLR_MODIFIER_SHIFT, XKB_KEY_Return, spawn,   {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_d,          spawn,          {.v = dmenucmd} },
+	{ MODKEY,                    XKB_KEY_o,          spawn,          {.v = dmenu_desktop} },
 	{ MODKEY,                    XKB_KEY_b,          spawn,          {.v = browsercmd} },
 	{ 0,                         XKB_KEY_XF86AudioMute, spawn,       {.v = mute} },
 	{ 0,                         XKB_KEY_XF86AudioRaiseVolume, spawn, {.v = volumeup} },
