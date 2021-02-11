@@ -1,6 +1,6 @@
 /* appearance */
 static const int sloppyfocus        = 1;  /* focus follows mouse */
-static const unsigned int borderpx  = 1;  /* border pixel of windows */
+static const unsigned int borderpx  = 2;  /* border pixel of windows */
 static const float rootcolor[]      = {0.13, 0.13, 0.15, 1.0};
 static const float bordercolor[]    = {0.21, 0.21, 0.23, 1.0};
 static const float focuscolor[]     = {0.9, 0.92, 0.46, 1.0};
@@ -14,8 +14,8 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       0,            1,           -1 },
 	{ "firefox",  NULL,       1 << 8,       0,           -1 },
 	*/
-    { "imv",  NULL,       1 << 8,       1,           -1 },
-    { "mpv",  NULL,       1 << 8,       1,           -1 },
+    /* { "imv",  NULL,       1 << 8,       1,           -1 },*/
+    /* { "mpv",  NULL,       1 << 8,       1,           -1 },*/
 };
 
 /* layout(s) */
@@ -31,11 +31,9 @@ static const Layout layouts[] = {
  * Non-configured monitors are always added to the left. */
 static const MonitorRule monrules[] = {
 	/* name       mfact nmaster scale layout       rotate/reflect x y */
-	/* example of a HiDPI laptop monitor:
-	{ "eDP-1",    0.5,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL, 0, 0 },
-	*/
+	{ "eDP-1",    0.5,  1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL, 0, 0 },
 	/* defaults */
-	{ NULL,       0.55, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL, 0, 0 },
+	/* { NULL,       0.55, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL, 0, 0 },*/
 };
 
 /* keyboard */
@@ -110,8 +108,8 @@ static const Key keys[] = {
 	{ MODKEY, 					 XKB_KEY_e,    		 togglefullscreen, {0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_0,          view,           {.ui = ~0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_degree,     tag,            {.ui = ~0} },
-	{ MODKEY,                    XKB_KEY_comma,      focusmon,       {.i = WLR_DIRECTION_LEFT} },
-	{ MODKEY,                    XKB_KEY_semicolon,  focusmon,       {.i = WLR_DIRECTION_RIGHT} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_comma,      focusmon,       {.i = WLR_DIRECTION_LEFT} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_semicolon,  focusmon,       {.i = WLR_DIRECTION_RIGHT} },
 	{ MODKEY,                    XKB_KEY_less,       tagmon,         {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    tagmon,         {.i = WLR_DIRECTION_RIGHT} },
 	TAGKEYS(          XKB_KEY_ampersand, XKB_KEY_exclam,  			 0),
