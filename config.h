@@ -64,9 +64,9 @@ static const int natural_scrolling = 0;
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[]  = { "footclient", NULL };
+static const char *termcmd[]  = { "foot", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
-static const char *dmenucmd[] = { "dmenu-run", NULL };
+static const char *dmenucmd[] = { "fuzzel-run", NULL };
 static const char *dmenu_desktop[] = { "dmenu-desktop", NULL };
 static const char *mute[]  = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 static const char *volumeup[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
